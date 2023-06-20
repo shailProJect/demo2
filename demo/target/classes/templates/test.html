@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Testing Purpose</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+<h1>[[${message}]]</h1>
+<button id="startButton">Start Listening</button>
+<p id="result"></p>
+
+
+  <input type="file" id="video-file-input" accept="video/*">
+  <button id="convert-btn">Convert to Audio</button>
+  <a id="download-link" style="display: none;" download>Download Audio</a>
+
+
+
+  <input type="file" id="audio-file-input" accept="audio/*">
+  <button id="transcribe-btn">Transcribe</button>
+  <div id="transcript"></div>
+
+<!-- <script>
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+	  // Create a new SpeechRecognition object
+	  var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+	  // Set properties
+	  recognition.lang = 'en-US'; // Set the language
+	  recognition.interimResults = true; // Get interim results during speech recognition
+
+	  // Event handler for when speech is recognized
+	  recognition.onresult = function(event) {
+	    var result = event.results[event.results.length - 1][0].transcript;
+	    document.getElementById('result').textContent = result;
+	  };
+
+	  // Event handler for errors
+	  recognition.onerror = function(event) {
+	    console.error('Speech recognition error occurred:', event.error);
+	  };
+
+	  // Start button click event
+	  document.getElementById('startButton').addEventListener('click', function() {
+	    recognition.start();
+	    console.log('Speech recognition started.');
+	  });
+	} else {
+	  console.error('Speech recognition not supported in this browser.');
+	}
+	
+	$("#result").on('change' ,function(){
+		console.log($("#result").val());
+	})
+	
+ function setCookie(name, value, expirationDays) {
+  var date = new Date();
+  date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000)); // Set the expiration date
+
+  var expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Example usage
+
+
+
+function getCookie(name) {
+	  var cookieName = name + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var cookieArray = decodedCookie.split(';');
+
+	  for (var i = 0; i < cookieArray.length; i++) {
+	    var cookie = cookieArray[i];
+	    while (cookie.charAt(0) === ' ') {
+	      cookie = cookie.substring(1);
+	    }
+	    if (cookie.indexOf(cookieName) === 0) {
+	      return cookie.substring(cookieName.length, cookie.length);
+	    }
+	  }
+
+	  return "";
+	}
+
+	// Example usage
+	
+	console.log(myCookieValue);
+	
+	function deleteCookie(name) {
+		  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+		}
+
+		// Example usage
+		
+		
+		function updateCookie(name, value, expirationDays) {
+			  var date = new Date();
+			  date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000)); // Set the expiration date
+
+			  var expires = "expires=" + date.toUTCString();
+			  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+			}
+		var myCookieValue = getCookie("myCookie");
+			setCookie("myCookie", "example value", 7); 
+			// Example usage
+			updateCookie("myCookie", "new value", 7);
+			
+			deleteCookie("myCookie");
+</script>
+ -->
+
+<script type="text/javascript">
+const videoFileInput = document.getElementById('video-file-input');
+const convertButton = document.getElementById('convert-btn');
+const downloadLink = document.getElementById('download-link');
+
+// Event listener for video file input change
+videoFileInput.addEventListener('change', (event) => {
+  const videoFile = event.target.files[0];
+  convertButton.disabled = false;
+
+  // Event listener for convert button click
+  convertButton.addEventListener('click', () => {
+    convertVideoToAudio(videoFile);
+  });
+});
+
+// Function to convert video to audio
+function convertVideoToAudio(videoFile) {
+  const videoElement = document.createElement('video');
+  videoElement.src = URL.createObjectURL(videoFile);
+
+  videoElement.addEventListener('loadedmetadata', () => {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioContext.createMediaElementSource(videoElement);
+    const destination = audioContext.createMediaStreamDestination();
+
+    source.connect(destination);
+
+    const audioStream = destination.stream;
+
+    const audioBlob = new Blob([audioStream], { type: 'audio/mp3' });
+    const audioUrl = URL.createObjectURL(audioBlob);
+	console.log("audioUrl --> "+audioUrl);
+	
+    downloadLink.href = audioUrl;
+    downloadLink.style.display = 'block';
+  });
+}
+</script>
+
+<script type="text/javascript">
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+	  // Get the required DOM elements
+	  const audioFileInput = document.getElementById('audio-file-input');
+	  const transcribeButton = document.getElementById('transcribe-btn');
+	  const transcriptDiv = document.getElementById('transcript');
+
+	  // Create a new SpeechRecognition instance
+	  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+	  // Set options for speech recognition
+	  recognition.lang = 'en-US'; // Set the language for transcription
+
+	  // Event listener for audio file input change
+	  audioFileInput.addEventListener('change', (event) => {
+	    const audioFile = event.target.files[0];
+	    transcribeButton.disabled = false;
+	    recognition.audioTranscription = '';
+
+	    // Create an audio element and load the selected file
+	    const audioElement = new Audio();
+	    audioElement.src = URL.createObjectURL(audioFile);
+			console.log("audioElement.src "+audioElement.src)
+	    audioElement.addEventListener('loadeddata', () => {
+	      // Set the audio file duration as the maximum speech recognition duration
+	      recognition.maxDuration = audioElement.duration;
+	      console.log("recognition.maxDuration "+recognition.maxDuration)
+	    });
+
+	    // Event listener for transcribe button click
+	    transcribeButton.addEventListener('click', () => {
+	      recognition.start();
+	    });
+
+	    // Event listener for transcribed text
+	    recognition.onresult = (event) => {
+	      const transcript = event.results[event.results.length - 1][0].transcript;
+	      recognition.audioTranscription += transcript;
+	      console.log("recognition.audioTranscription "+recognition.audioTranscription)
+	    };
+
+	    // Event listener for speech recognition end
+	    recognition.onend = () => {
+	    	console.log("recognition.audioTranscription "+recognition.audioTranscription)
+	      transcriptDiv.innerText = recognition.audioTranscription;
+	    };
+	  });
+	} else {
+	  console.log('Speech recognition not supported in this browser.');
+	}
+</script>
+</html>

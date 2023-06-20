@@ -1,0 +1,192 @@
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+#tooltip {
+  position: absolute;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: none;
+  z-index: 9999;
+}
+
+.tooltip-icons {
+  display: flex;
+}
+
+.tooltip-icons i {
+  margin-right: 5px;
+  cursor: pointer;
+}
+</style>
+<body>
+  <div id="tooltip"></div>
+
+  <p>
+    Select some text from the paragraph below and a tooltip will appear around it.
+  </p>
+
+  <p id="content">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content2">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content3">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content4">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content5">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content6">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content7">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content8">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content9">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content09">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content98">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content87">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content761">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content762">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content763">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content764">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content765">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content766">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+  <p id="content767">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis risus at justo blandit aliquam. 
+    Vestibulum vel consectetur metus. Mauris rhoncus ultricies nunc a suscipit. Quisque tempus eros vitae odio 
+    fringilla, nec feugiat sapien suscipit. Ut tempor vestibulum neque, sed dapibus odio dignissim et. Nullam 
+    ut lacus accumsan, finibus sem eu, luctus nisl. In malesuada posuere mauris sed rutrum.
+  </p>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="script.js"></script>
+</body>
+<script>
+$(document).ready(function() {
+
+  let selectedText = "";
+
+  $(document).on('mouseup', function() {
+    const selection = window.getSelection();
+    selectedText = selection.toString().trim();
+
+    if (selectedText !== "") {
+      const range = selection.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+      const tooltip = $('#tooltip');
+
+      tooltip.empty();
+      tooltip.append('<div class="tooltip-icons"><i class="fa fa-play"></i> <i class="fa fa-pause" ></i></div>');
+      tooltip.css({ top: rect.top - 40, left: rect.left });
+
+ 
+      tooltip.show();
+    } else {
+      $('#tooltip').hide();
+    }
+  });
+});
+</script>
+</html>
+
+
